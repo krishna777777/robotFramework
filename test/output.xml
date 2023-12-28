@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20231228 14:19:31.389" rpa="false" schemaversion="4">
+<suite id="s1" name="testDemo3" source="C:\Users\krish\PycharmProjects\robotFramework\test\testDemo3.robot">
+<test id="s1-t1" name="To Validate the Child Window Traversal and Grab the text" line="15">
+<kw name="Open the Browser with the URL">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://rahulshettyacademy.com/loginpagePractise/</arg>
+<arg>browser=chrome</arg>
+<arg>options=add_experimental_option("detach",${true})</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231228 14:19:31.674" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/loginpagePractise/'.</msg>
+<status status="PASS" starttime="20231228 14:19:31.673" endtime="20231228 14:19:34.472"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231228 14:19:34.472" endtime="20231228 14:19:34.607"/>
+</kw>
+<status status="PASS" starttime="20231228 14:19:31.673" endtime="20231228 14:19:34.607"/>
+</kw>
+<kw name="Click on the Link and go the Other window">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${childwindow}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231228 14:19:34.609" level="INFO">Clicking element 'xpath://a[@class='blinkingText']'.</msg>
+<status status="PASS" starttime="20231228 14:19:34.608" endtime="20231228 14:19:34.713"/>
+</kw>
+<kw name="Get Window Handles" library="SeleniumLibrary">
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20231228 14:19:34.748" level="INFO">${handles} = ['89DE3E79270DB2409DA0B8040CA0B22A', '4FECE0411BF2F57AB60B23F39790A57F']</msg>
+<status status="PASS" starttime="20231228 14:19:34.713" endtime="20231228 14:19:34.748"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${NEW_WINDOW_HANDLE}</var>
+<arg>${handles}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231228 14:19:34.748" level="INFO">${NEW_WINDOW_HANDLE} = 4FECE0411BF2F57AB60B23F39790A57F</msg>
+<status status="PASS" starttime="20231228 14:19:34.748" endtime="20231228 14:19:34.748"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${NEW_WINDOW_HANDLE}</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20231228 14:19:34.748" endtime="20231228 14:19:34.806"/>
+</kw>
+<status status="PASS" starttime="20231228 14:19:34.608" endtime="20231228 14:19:34.806"/>
+</kw>
+<kw name="Grab the Text from the Child Window">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${emailText}</var>
+<arg>${email}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231228 14:19:36.214" level="INFO">${emailText} = mentor@rahulshettyacademy.com</msg>
+<status status="PASS" starttime="20231228 14:19:34.807" endtime="20231228 14:19:36.214"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${emailText}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231228 14:19:36.214" level="INFO">mentor@rahulshettyacademy.com</msg>
+<status status="PASS" starttime="20231228 14:19:36.214" endtime="20231228 14:19:36.214"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231228 14:19:46.214" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231228 14:19:36.214" endtime="20231228 14:19:46.214"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>MAIN</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20231228 14:19:46.214" endtime="20231228 14:19:46.256"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://*[contains(@name,'username')]</arg>
+<arg>${emailText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 14:19:46.256" level="INFO">Typing text 'mentor@rahulshettyacademy.com' into text field 'xpath://*[contains(@name,'username')]'.</msg>
+<status status="PASS" starttime="20231228 14:19:46.256" endtime="20231228 14:19:46.459"/>
+</kw>
+<status status="PASS" starttime="20231228 14:19:34.807" endtime="20231228 14:19:46.459"/>
+</kw>
+<status status="PASS" starttime="20231228 14:19:31.670" endtime="20231228 14:19:46.463"/>
+</test>
+<doc>To validate the child Window Traversal and grab the email</doc>
+<status status="PASS" starttime="20231228 14:19:31.391" endtime="20231228 14:19:46.463"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="testDemo3">testDemo3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
